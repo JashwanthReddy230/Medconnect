@@ -1,20 +1,25 @@
-frontend/node_modules/
-frontend/dist/
-frontend/build/
-frontend/.env*
+# Frontend
+medconnect fronend/node_modules/
+medconnect fronend/dist/
+medconnect fronend/build/
 
-backend/target/
-backend/.env*
-
+# Environment
 .env
 .env.*
+**/.env
+**/.env.*
 
-!.env.example
+# Java / Maven
+**/target/
 
+# IDE
 .vscode/
 .idea/
 *.iml
 
+# Logs
 *.log
-.DS_Store
-Thumbs.db
+hs_err_pid*.log
+
+# Docker
+.dockerignore
