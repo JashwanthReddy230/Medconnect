@@ -1,0 +1,5 @@
+package com.Hospital_Service.Controller;
+
+public class PaymentController {
+
+}

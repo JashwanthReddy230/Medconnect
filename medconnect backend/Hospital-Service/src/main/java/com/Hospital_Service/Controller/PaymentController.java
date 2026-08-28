@@ -1,0 +1,66 @@
+package com.Hospital_Service.Controller;
+
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.Hospital_Service.Dto.PaymentRequest;
+import com.Hospital_Service.Dto.PaymentResponse;
+import com.Hospital_Service.Service.PaymentService;
+
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequestMapping("/payments")
+@RequiredArgsConstructor
+public class PaymentController {
+
+    private final PaymentService service;
+
+    @PostMapping
+    public ResponseEntity<PaymentResponse> makePayment(
+            @RequestBody PaymentRequest request) {
+
+        return ResponseEntity.ok(service.makePayment(request));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<PaymentResponse> getPayment(
+            @PathVariable Long id) {
+
+        return ResponseEntity.ok(service.getPayment(id));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<PaymentResponse>> getPayments() {
+
+        return ResponseEntity.ok(service.getAllPayments());
+    }
+
+    @GetMapping("/patient/{patientId}")
+    public ResponseEntity<List<PaymentResponse>> getPaymentsByPatient(
+            @PathVariable Long patientId) {
+
+        return ResponseEntity.ok(service.getPaymentsByPatient(patientId));
+    }
+
+    @GetMapping("/hospital/{hospitalId}")
+    public ResponseEntity<List<PaymentResponse>> getPaymentsByHospital(
+            @PathVariable Long hospitalId) {
+
+        // Bill/Payment records are not scoped per hospital in this schema (single-hospital
+        // deployment); return the full payment ledger so hospital-side views stay populated
+        // with real data rather than falling back to mock data.
+        return ResponseEntity.ok(service.getAllPayments());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deletePayment(@PathVariable Long id){
+
+        service.deletePayment(id);
+
+        return ResponseEntity.ok("Payment Deleted Successfully");
+    }
+
+}

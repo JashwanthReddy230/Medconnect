@@ -1,0 +1,5 @@
+package com.Auth_Service.Service;
+
+public class AuthServiceImpl {
+
+}

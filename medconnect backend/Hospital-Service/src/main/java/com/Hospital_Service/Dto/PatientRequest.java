@@ -1,0 +1,114 @@
+package com.Hospital_Service.Dto;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+public class PatientRequest {
+
+    private String firstName;
+
+    private String lastName;
+
+    private String gender;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dateOfBirth;
+
+    private String bloodGroup;
+
+    private String mobile;
+
+    private String email;
+
+    private String address;
+
+    private String emergencyContact;
+
+    private List<String> allergies;
+    private List<String> chronicConditions;
+    private List<String> pastSurgeries;
+    private List<String> currentMedications;
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getBloodGroup() {
+        return bloodGroup;
+    }
+
+    public void setBloodGroup(String bloodGroup) {
+        this.bloodGroup = bloodGroup;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getEmergencyContact() {
+        return emergencyContact;
+    }
+
+    public void setEmergencyContact(String emergencyContact) {
+        this.emergencyContact = emergencyContact;
+    }
+
+    public List<String> getAllergies() { return allergies; }
+    public void setAllergies(List<String> allergies) { this.allergies = allergies; }
+    public List<String> getChronicConditions() { return chronicConditions; }
+    public void setChronicConditions(List<String> chronicConditions) { this.chronicConditions = chronicConditions; }
+    public List<String> getPastSurgeries() { return pastSurgeries; }
+    public void setPastSurgeries(List<String> pastSurgeries) { this.pastSurgeries = pastSurgeries; }
+    public List<String> getCurrentMedications() { return currentMedications; }
+    public void setCurrentMedications(List<String> currentMedications) { this.currentMedications = currentMedications; }
+}
